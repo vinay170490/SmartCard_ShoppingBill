@@ -1,0 +1,76 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "barCodeId": "ABC1234",
+      "name": "Apple",
+      "productCategory": "A",
+      "rate": 20,
+      "quantity": 5
+    },
+    {
+      "id": 2,
+      "barCodeId": "ABC1235",
+      "name": "Banana",
+      "productCategory": "A",
+      "rate": 10,
+      "quantity": 10
+    },
+    {
+      "id": 3,
+      "barCodeId": "ABC1236",
+      "name": "Orange",
+      "productCategory": "A",
+      "rate": 15,
+      "quantity": 5
+    },
+    {
+      "id": 4,
+      "barCodeId": "XYZ1234",
+      "name": "Almond",
+      "productCategory": "B",
+      "rate": 20,
+      "quantity": 5
+    },
+    {
+      "id": 5,
+      "barCodeId": "XYZ1235",
+      "name": "Cashew",
+      "productCategory": "B",
+      "rate": 10,
+      "quantity": 10
+    },
+    {
+      "id": 6,
+      "barCodeId": "XYZ1236",
+      "name": "Walnut",
+      "productCategory": "B",
+      "rate": 30,
+      "quantity": 5
+    },
+    {
+      "id": 7,
+      "barCodeId": "PQR1234",
+      "name": "Onion",
+      "productCategory": "C",
+      "rate": 20,
+      "quantity": 5
+    },
+    {
+      "id": 8,
+      "barCodeId": "PQR1235",
+      "name": "Lemon",
+      "productCategory": "C",
+      "rate": 10,
+      "quantity": 5
+    },
+    {
+      "id": 9,
+      "barCodeId": "PQR1236",
+      "name": "Cheese",
+      "productCategory": "C",
+      "rate": 25,
+      "quantity": 5
+    }
+  ]
+}
