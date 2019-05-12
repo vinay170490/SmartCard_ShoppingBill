@@ -26,7 +26,7 @@ public class ProductList {
 				
 				JSONObject obj = (JSONObject) jsonParser.parse(reader);
 				productList = (JSONArray) obj.get("products");
-				// Iterate over employee array
+				
 				productList.forEach(product -> parseProductObject((JSONObject) product));
 
 			} catch (FileNotFoundException e) {

@@ -16,20 +16,24 @@ public class ReadJson extends ProductList {
 		CalculateBill calculateBill = new CalculateBill();
 		
 		JSONArray productList = products.getProductList();
+		
 		List<Bill> billItems = calculateBill.addProductsToBill(productList);
 	
 		System.out.println("Selected Items are :");
+		System.out.println("-------------------------------");
 		double totalCost = 0;
 		double serviceTax = 0;
  for(int i = 0; i<billItems.size();i++) {
-	 System.out.println(billItems.get(i).getProductName()+" "+
-			 billItems.get(i).getNoOfItems()+" "+billItems.get(i).getProductCost());
+	 System.out.println("Product Name : "+ billItems.get(i).getProductName()+
+			 " || No. Of Items : "+billItems.get(i).getNoOfItems()+" || Price : "+billItems.get(i).getProductCost());
 	 		serviceTax = serviceTax+billItems.get(i).getProductTax();
 	 		totalCost = totalCost + billItems.get(i).getProductCost();
 	 
  	}
  	totalCost = totalCost+serviceTax;
-	System.out.println("Service Tax : " + serviceTax);
-	System.out.println("Total Bill : " + totalCost);
+ 	System.out.println("-------------------------------");
+	System.out.println("Service Tax    : " + serviceTax);
+	System.out.println("-------------------------------");
+	System.out.println("Total Bill     : " + totalCost);
 	}
 }
