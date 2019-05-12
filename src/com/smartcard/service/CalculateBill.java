@@ -14,7 +14,8 @@ public class CalculateBill {
 
 	public List<Bill> addProductsToBill(JSONArray products) {
 		
-		System.out.println("Product List is: "+ products.toString());
+		System.out.println("Total No. of Products are: "+ products);
+		
 		//Bill bill = new Bill();
 		Gson gson = new Gson();
 		AtomicLong id = new AtomicLong(10000000000L);

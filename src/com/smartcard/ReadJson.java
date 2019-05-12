@@ -15,9 +15,10 @@ public class ReadJson extends ProductList {
 		ProductList products = new ProductList();
 		CalculateBill calculateBill = new CalculateBill();
 		
-		JSONArray productList = products.getProductList();
-		
-		List<Bill> billItems = calculateBill.addProductsToBill(productList);
+		//JSONArray productList = products.getProductList();
+		//calculateBill.addProductsToBill(productList);
+		JSONArray selproductList = products.setSelectedProductList();
+		List<Bill> billItems = calculateBill.addProductsToBill(selproductList);
 	
 		System.out.println("Selected Items are :");
 		System.out.println("-------------------------------");

@@ -39,7 +39,29 @@ public class ProductList {
 
 			return productList;
 		}
+		@SuppressWarnings("unchecked")
+		public JSONArray setSelectedProductList() {
+			JSONParser jsonParser = new JSONParser();
+			JSONArray selproductList = null;
 
+			try (FileReader reader = new FileReader("selectedProducts.json")) {
+				
+				JSONObject obj = (JSONObject) jsonParser.parse(reader);
+				selproductList = (JSONArray) obj.get("products");
+				
+				selproductList.forEach(product -> parseProductObject((JSONObject) product));
+
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+
+			return selproductList;
+			
+		}
 		public static void parseProductObject(JSONObject productObject) {
 			// Get product object within list
 			//JSONObject productObject = (JSONObject) product.get("products");
