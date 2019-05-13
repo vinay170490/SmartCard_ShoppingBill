@@ -13,9 +13,11 @@ import com.smartcard.model.Product;
 public class CalculateBill {
 
 	public List<Bill> addProductsToBill(JSONArray products) {
-		
-		System.out.println("Total No. of Products are: "+ products);
-		
+		System.out.println("Total No. of Products are: ");
+		System.out.println("------------------------------");
+		for(int i =0; i<products.size();i++) {
+		System.out.println(products.get(i));
+		}
 		//Bill bill = new Bill();
 		Gson gson = new Gson();
 		AtomicLong id = new AtomicLong(10000000000L);
