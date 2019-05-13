@@ -7,6 +7,7 @@ public class Bill {
 	
 	private String productName;
 	private int noOfItems;
+	private double eachProductCost;
 	private double productCost;
 	private double productTax;
 	private double totalValue;
@@ -67,6 +68,14 @@ public class Bill {
 	public String toString() {
 		return " productName=" + productName + ", noOfItems=" + noOfItems + ", productCost="
 				+ productCost + ", productTax=" + productTax + ", totalValue=" + totalValue ;
+	}
+
+	public double getEachProductCost() {
+		return eachProductCost;
+	}
+
+	public void setEachProductCost(double d) {
+		this.eachProductCost = d;
 	}
 
 }

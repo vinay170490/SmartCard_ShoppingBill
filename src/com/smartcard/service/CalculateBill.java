@@ -13,11 +13,6 @@ import com.smartcard.model.Product;
 public class CalculateBill {
 
 	public List<Bill> addProductsToBill(JSONArray products) {
-		System.out.println("Total No. of Products are: ");
-		System.out.println("------------------------------");
-		for(int i =0; i<products.size();i++) {
-		System.out.println(products.get(i));
-		}
 		//Bill bill = new Bill();
 		Gson gson = new Gson();
 		AtomicLong id = new AtomicLong(10000000000L);
@@ -30,12 +25,16 @@ public class CalculateBill {
 			Double productTotalCost = product.getRate()*product.getQuantity();
 			Bill bill = new Bill();
 			bill.setNoOfItems(product.getQuantity());
+			bill.setEachProductCost(product.getRate());
 			bill.setProductCost(productTotalCost);
 			bill.setProductName(product.getName());
 			bill.setProductTax(computeTax(productTotalCost,product.getProductCategory()));
 			bill.setTotalValue(bill.getProductCost() + bill.getProductTax());
 			
 			lineItems.add(bill);
+			//for(int i =0; i<products.size();i++) {
+			
+				
 		}
 		long billId = id.getAndIncrement();
 		for(int i=0; i<lineItems.size(); i++) {
@@ -46,7 +45,6 @@ public class CalculateBill {
 		
 
 	}
-			
 	private double computeTax(double productTotalCost, String productCategory) {
 		
 		double saleValue = 0;
