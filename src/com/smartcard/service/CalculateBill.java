@@ -7,19 +7,17 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.json.simple.JSONArray;
 
 import com.google.gson.Gson;
+import com.smartcard.Exception.SmartCardException;
 import com.smartcard.model.Bill;
 import com.smartcard.model.Product;
 
 public class CalculateBill {
 
-	public List<Bill> addProductsToBill(JSONArray products) {
-		//Bill bill = new Bill();
+	public List<Bill> addProductsToBill(JSONArray products) throws SmartCardException {
 		Gson gson = new Gson();
 		AtomicLong id = new AtomicLong(10000000000L);
-		//bill.setId(id.getAndIncrement());
 		List<Bill> lineItems = new ArrayList<Bill>();
 		
-		//JSONArray products = productList;
 		for(int i=0; i<products.size(); i++) {
 			Product product = gson.fromJson(products.get(i).toString(), Product.class);
 			Double productTotalCost = product.getRate()*product.getQuantity();
@@ -32,8 +30,6 @@ public class CalculateBill {
 			bill.setTotalValue(bill.getProductCost() + bill.getProductTax());
 			
 			lineItems.add(bill);
-			//for(int i =0; i<products.size();i++) {
-			
 				
 		}
 		long billId = id.getAndIncrement();
@@ -45,7 +41,7 @@ public class CalculateBill {
 		
 
 	}
-	private double computeTax(double productTotalCost, String productCategory) {
+	public double computeTax(double productTotalCost, String productCategory) throws SmartCardException {
 		
 		double saleValue = 0;
 		if (productCategory.equals("A")) {
@@ -56,6 +52,9 @@ public class CalculateBill {
 
 		} else if (productCategory.equals("C")) {
 			saleValue = 0;
+		}
+		else {
+			throw new SmartCardException("Invalid Product Category");
 		}
 		return saleValue;
 	}

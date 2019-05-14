@@ -40,7 +40,7 @@ public class ProductList {
 			return productList;
 		}
 		@SuppressWarnings("unchecked")
-		public JSONArray setSelectedProductList() {
+		public JSONArray getSelectedProductList() {
 			JSONParser jsonParser = new JSONParser();
 			JSONArray selproductList = null;
 
@@ -62,7 +62,7 @@ public class ProductList {
 			return selproductList;
 			
 		}
-		public static void parseProductObject(JSONObject productObject) {
+		public void parseProductObject(JSONObject productObject) {
 			// Get product object within list
 			//JSONObject productObject = (JSONObject) product.get("products");
 
